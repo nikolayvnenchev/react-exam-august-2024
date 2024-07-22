@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function CatalogItem({
+export default function ProductsItem({
     _id,
     name,
     price,
@@ -19,7 +19,7 @@ export default function CatalogItem({
             <div className="mt-4 flex justify-between">
                 <div>
                     <h3 className="text-sm text-gray-700">
-                        <Link to={`/catalog/${_id}/details`}>
+                        <Link to={`/products/${_id}/details`}>
                             <span aria-hidden="true" className="absolute inset-0" />
                             {name}
                         </Link>
@@ -30,7 +30,7 @@ export default function CatalogItem({
             </div>
             <div className='lg:flex lg:gap-x-12'>
                 <Link
-                    to={`/catalog/${_id}/details`}
+                    to={`/products/${_id}/details`}
                     className="mt-5 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                     Details

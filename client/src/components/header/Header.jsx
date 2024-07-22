@@ -46,10 +46,10 @@ export default function Header() {
                         About
                     </NavLink>
                     <NavLink
-                        to="/catalog"
+                        to="/products"
                         className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
                     >
-                        Catalog
+                        Products
                     </NavLink>
                     <NavLink
                         to="/contact"

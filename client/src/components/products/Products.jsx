@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 
 import * as productsAPI from '../../api/catalog-api';
 
-import CatalogItem from './products-item/CatalogItem';
+import ProductsItem from './products-item/ProductsItem';
 
-export default function Catalog() {
+export default function Products() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function Catalog() {
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {products.length > 0
-            ? products.map(product => <CatalogItem key={product._id} {...product} />)
+            ? products.map(product => <ProductsItem key={product._id} {...product} />)
             : <h3 className="font-bold tracking-tight text-2xl">No products found!</h3>
           }
         </div>
