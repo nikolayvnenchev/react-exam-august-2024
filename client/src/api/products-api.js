@@ -10,3 +10,11 @@ export const getAll = async () => {
     return products;
 }
 
+export const getOneProduct = (productId) => request.get(`${BASE_URL}/${productId}`);
+
+const productsAPI = {
+    getAll,
+    getOneProduct,
+}
+
+export default productsAPI;
