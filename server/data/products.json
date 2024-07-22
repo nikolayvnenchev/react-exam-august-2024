@@ -1,0 +1,29 @@
+{
+    "d1c94849-3f72-4d8e-9d61-639de493642d": {
+        "name": "Basic Tee T-Shirt",
+        "brand": "H&M",
+        "price": "30",
+        "imageUrl": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+        "color": "Black",
+        "description": "It is a casual T-Shirt made from 100% cotton",
+        "_id": "d1c94849-3f72-4d8e-9d61-639de493642d"
+    },
+    "3d886aa9-6eb1-493b-90f6-4d6008d6fcef": {
+        "name": "Basketball Pro Edition",
+        "brand": "Spalding",
+        "price": "65",
+        "imageUrl": "https://storage.needpix.com/rsynced_images/basketball-933173_1280.jpg",
+        "color": "Orange",
+        "description": "Professional Basketball for all courts",
+        "_id": "3d886aa9-6eb1-493b-90f6-4d6008d6fcef"
+    },
+    "c975adec-9f9f-45a8-ab47-4d63c74b350e": {
+        "name": "The Colorful Sneakers",
+        "brand": "Xing",
+        "price": "135",
+        "imageUrl": "https://as2.ftcdn.net/v2/jpg/08/50/64/53/1000_F_850645327_9nmgpvc3Z1YFrl9l720NSf4FmfjKszjs.jpg",
+        "color": "Orange/White/Light-Blue",
+        "description": "High quality professional sneakers for basketball lovers.",
+        "_id": "c975adec-9f9f-45a8-ab47-4d63c74b350e"
+    }
+}
