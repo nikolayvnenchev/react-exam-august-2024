@@ -6,10 +6,10 @@ SoftUni React Project
     [x] Add softuni practice server
     [x] Add base vite react project as client
     [x] Cleanup client
-    [ ]Add project resources - add folders as:    images, css, index html etc.
-    [ ] Convert html to jsx
-    [ ]Separate html into components
+    [x]Add project resources - add folders as:    images, css, index html etc.
+    [x] Convert html to jsx
+    [x]Separate html into components
 ## 2. React Router
-    [ ] Install react-router-dom
-    [ ] Setup react-router-dom
-    [ ] Add routes in App.jsx
+    [x] Install react-router-dom
+    [x] Setup react-router-dom
+    [x] Add routes in App.jsx
