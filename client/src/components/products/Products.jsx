@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import * as productsAPI from '../../api/catalog-api';
+import * as productsAPI from '../../api/products-api';
 
 import ProductsItem from './products-item/ProductsItem';
 

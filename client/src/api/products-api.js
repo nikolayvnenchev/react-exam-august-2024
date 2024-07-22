@@ -9,3 +9,4 @@ export const getAll = async () => {
 
     return products;
 }
+
