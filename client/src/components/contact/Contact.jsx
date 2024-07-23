@@ -5,7 +5,7 @@ export default function Contact() {
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Contact form</h2>
             </div>
 
-            <div className="mt-20 sm:mx-auto sm:w-full sm:max-w-sm">
+            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                 <form action="#" method="POST" className="space-y-6">
                     <div>
                         <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">

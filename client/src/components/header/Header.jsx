@@ -12,12 +12,11 @@ export default function Header() {
         <header className="absolute inset-x-0 top-0 z-50">
             <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-10">
                 <div className="flex lg:flex-1">
-                    <Link href="/" className="-m-1.5 p-1.5">
-                        <span className="sr-only">Your Company</span>
+                    <Link to="/">
                         <img
-                            alt=""
+                            alt="logo"
                             src="https://scontent-sof1-1.xx.fbcdn.net/v/t39.30808-6/311292841_649907736583974_6624674619523619269_n.png?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=y9ZN42uKKUoQ7kNvgGnN-u2&_nc_ht=scontent-sof1-1.xx&oh=00_AYBrxByAr1A9kGEJOhDBXzELWFPXZVkw2BefQ7Qn8fJlSQ&oe=66A40CAD"
-                            className="h-8 w-auto"
+                            className="h-14 w-auto"
                         />
                     </Link>
                 </div>
