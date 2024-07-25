@@ -5,7 +5,7 @@ export default function Register() {
     return (
         <>
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-                <div className="mt-20 sm:mx-auto sm:w-full sm:max-w-sm">
+                <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                         Register form
                     </h2>

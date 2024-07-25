@@ -45,16 +45,22 @@ export default function Header() {
                         About
                     </NavLink>
                     <NavLink
+                        to="/contact"
+                        className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                    >
+                        Contact
+                    </NavLink>
+                    <NavLink
                         to="/products"
                         className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
                     >
                         Products
                     </NavLink>
                     <NavLink
-                        to="/contact"
+                        to="/create"
                         className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
                     >
-                        Contact
+                        Create Product
                     </NavLink>
                     <NavLink
                         to="/login"
@@ -67,6 +73,12 @@ export default function Header() {
                         className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
                     >
                         Register
+                    </NavLink>
+                    <NavLink
+                        to="/logout"
+                        className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                    >
+                        Logout
                     </NavLink>
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">

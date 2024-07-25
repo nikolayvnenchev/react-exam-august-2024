@@ -8,6 +8,8 @@ import Login from './components/login/Login'
 import Register from './components/register/Register'
 import Details from './components/details/Details'
 import Products from './components/products/Products'
+import Create from './components/create/Create'
+import Logout from './components/logout/Logout'
 
 function App() {
     return (
@@ -19,8 +21,10 @@ function App() {
                 <Route path='/products' element={<Products />} />
                 <Route path='/products/:productId/details' element={<Details />} />
                 <Route path='/contact' element={<Contact />} />
+                <Route path='/create' element={<Create />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
+                <Route path='/logout' element={<Logout />} />
             </Routes>
         </div>
     )
