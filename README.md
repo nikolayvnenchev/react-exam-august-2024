@@ -21,10 +21,10 @@ SoftUni React Project
     [x] Preseed practice server
 ## 4. Page Implementations
     [x] Game list
-    [ ] Details
-    [ ] Details link
-    [ ] Details route
-    [ ] Api function - getOne
+    [x] Details
+    [x] Details link
+    [x] Details route
+    [x] Api function - getOne
     [ ] Home - Latest Games
 ## 5. Comments (Advanced)
     [ ] Create service for nested resource `comments`
@@ -32,3 +32,35 @@ SoftUni React Project
     [ ] Read comments from server
     [ ] Add comments in the component
     [ ] Clear form
+## 6. API Hooks
+    [x] Form Hook
+    [x] GameAPI Hooks
+    [ ] Comment Hooks
+## 7. Authentication
+    [ ] Auth API
+        [ ] Login
+        [ ] Register
+        [ ] Logout
+    [ ] Auth API hook
+        [ ] Login
+        [ ] Register
+        [ ] Logout
+    [ ] Auth state & context
+    [ ] Token management
+    [ ] Login
+    [ ] Register
+        [ ] Add form validation
+    [ ] Logout
+    [ ] Authorized Requests
+## 8. UI Implementation 
+    [ ] Dynamic navigation
+    [ ] Create game
+        [ ] API function
+        [ ] Hook
+    [ ] Latest games
+
+## Notes
+  1. Latest Games
+     2. URL `http://localhost:3030/data/games?sortBy=_createdOn%20desc&pageSize=3`
+     3. USE URLSearchParams
+  2. seedData - line 1341 in server.js

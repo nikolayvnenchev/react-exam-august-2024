@@ -1,19 +1,11 @@
-import { useEffect, useState } from "react"
-import productsAPI from "../../api/products-api"
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useGetOneProducts } from "../../hooks/useProducts";
 
 export default function Details() {
-    const [product, setProduct] = useState({});
     const { productId } = useParams()
+    const [product, setProduct] = useGetOneProducts(productId);
 
-    useEffect(() => {
-        (async () => {
-            const result = await productsAPI.getOneProduct(productId);
-
-            setProduct(result);
-        })();
-    })
     return (
         <div className="mt-20 text-center">
             <div className="hidden sm:mb-8 sm:flex sm:justify-center">

@@ -1,20 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import * as productsAPI from '../../api/products-api';
+import productsAPI from '../../api/products-api';
 
 import ProductsItem from './products-item/ProductsItem';
+import { useGetAllProducts } from '../../hooks/useProducts';
 
 export default function Products() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const result = await productsAPI.getAll()
-
-      setProducts(result);
-    })();
-    // productsAPI.getAll().then(result => setProducts(result));
-  }, []);
+  const [products] = useGetAllProducts();
 
   return (
     <div className="bg-white">
