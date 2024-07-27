@@ -100,7 +100,7 @@ export default function Header() {
                 <div className="fixed inset-0 z-50" />
                 <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
-                        <Link href="#" className="-m-1.5 p-1.5">
+                        <Link to="/" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>
                             <img
                                 alt=""
@@ -119,7 +119,7 @@ export default function Header() {
                     </div>
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/10">
-                            <div className="space-y-2 py-6">
+                            <div className="space-y-2 py-6 flex flex-col">
                                 <NavLink
                                     to="/"
                                     className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
@@ -134,29 +134,51 @@ export default function Header() {
                                     About
                                 </NavLink>
                                 <NavLink
-                                    to="/catalog"
-                                    className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
-                                >
-                                    Catalog
-                                </NavLink>
-                                <NavLink
                                     to="/contact"
                                     className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
                                 >
                                     Contact
                                 </NavLink>
                                 <NavLink
-                                    to="/login"
+                                    to="/products"
                                     className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
                                 >
-                                    Login
+                                    Products
                                 </NavLink>
-                                <NavLink
-                                    to="/register"
-                                    className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
-                                >
-                                    Register
-                                </NavLink>
+                                {isAuthenticated
+                                    ? (
+                                        <>
+                                            <NavLink
+                                                to="/create"
+                                                className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                                            >
+                                                Create Product
+                                            </NavLink>
+                                            <NavLink
+                                                to="/logout"
+                                                className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                                            >
+                                                Logout
+                                            </NavLink>
+                                        </>
+                                    )
+                                    : (
+                                        <>
+                                            <NavLink
+                                                to="/login"
+                                                className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                                            >
+                                                Login
+                                            </NavLink>
+                                            <NavLink
+                                                to="/register"
+                                                className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                                            >
+                                                Register
+                                            </NavLink>
+                                        </>
+                                    )
+                                }
                             </div>
                         </div>
                     </div>
