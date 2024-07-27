@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { AuthContext } from './contexts/AuthContext'
 
 import Header from "./components/header/Header"
 import Home from './components/home/Home'
@@ -12,13 +11,16 @@ import Details from './components/details/Details'
 import Products from './components/products/Products'
 import Logout from './components/logout/Logout'
 import CreateProduct from './components/create/Create'
+import { AuthContext } from './contexts/AuthContext'
 
 function App() {
     // TODO remove this from App component
     const [authState, setAuthState] = useState({});
 
     const changeAuthState = (state) => {
-        // TODO validation
+        // TODO validation / Quick solution
+        localStorage.setItem('accessToken', state.accessToken);
+
         setAuthState(state);
     };
 
