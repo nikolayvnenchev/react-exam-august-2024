@@ -1,4 +1,38 @@
-export default function Create() {
+import { useNavigate } from "react-router-dom";
+import { useForm } from "../../hooks/useForm";
+import { useCreateProduct } from "../../hooks/useProducts";
+
+const initialValues = {
+    name: '',
+    brand: '',
+    price: '',
+    image: '',
+    color: '',
+    description: '',
+}
+
+export default function CreateProduct() {
+    const navigate = useNavigate();
+    const createProd = useCreateProduct();
+
+    const createHandler = async (values) => {
+        try {
+            const { _id: productId } = await createProd(values);
+
+            navigate(`/products/${productId}/details`);
+        } catch (err) {
+            //TODO Set error state and display error
+            console.log(err.message);
+        }
+    };
+
+    const {
+        values,
+        changeHandler,
+        submitHandler,
+    } = useForm(initialValues, createHandler)
+
+
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -6,99 +40,110 @@ export default function Create() {
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                <form action="#" method="POST" className="space-y-6">
+                <form method="POST" onSubmit={submitHandler} className="space-y-6">
                     <div>
-                        <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
+                        <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                             Product name
                         </label>
                         <div className="mt-2">
                             <input
-                                id="first-name"
-                                name="first-name"
+                                id="name"
+                                name="name"
                                 type="text"
+                                value={values.name}
+                                onChange={changeHandler}
                                 required
-                                autoComplete="given-name"
+                                autoComplete="name"
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
 
                     <div>
-                        <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-gray-900">
+                        <label htmlFor="brand" className="block text-sm font-medium leading-6 text-gray-900">
                             Brand
                         </label>
                         <div className="mt-2">
                             <input
-                                id="last-name"
-                                name="last-name"
+                                id="brand"
+                                name="brand"
                                 type="text"
+                                value={values.brand}
+                                onChange={changeHandler}
                                 required
-                                autoComplete="family-name"
+                                autoComplete="brand"
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
 
                     <div>
-                        <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-gray-900">
+                        <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
                             Price
                         </label>
                         <div className="mt-2">
                             <input
-                                id="last-name"
-                                name="last-name"
+                                id="price"
+                                name="price"
                                 type="text"
+                                value={values.price}
+                                onChange={changeHandler}
                                 required
-                                autoComplete="family-name"
+                                autoComplete="price"
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
 
                     <div>
-                        <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-gray-900">
+                        <label htmlFor="image" className="block text-sm font-medium leading-6 text-gray-900">
                             Image
                         </label>
                         <div className="mt-2">
                             <input
-                                id="last-name"
-                                name="last-name"
+                                id="image"
+                                name="image"
                                 type="text"
+                                value={values.image}
+                                onChange={changeHandler}
                                 required
-                                autoComplete="family-name"
+                                autoComplete="image"
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
 
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                        <label htmlFor="color" className="block text-sm font-medium leading-6 text-gray-900">
                             Color
                         </label>
                         <div className="mt-2">
                             <input
-                                id="email"
-                                name="email"
-                                type="email"
+                                id="color"
+                                name="color"
+                                type="text"
+                                value={values.color}
+                                onChange={changeHandler}
                                 required
-                                autoComplete="email"
+                                autoComplete="color"
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
 
                     <div>
-                        <label htmlFor="about" className="block text-sm font-medium leading-6 text-gray-900">
+                        <label htmlFor="description" className="block text-sm font-medium leading-6 text-gray-900">
                             Description
                         </label>
                         <div className="mt-2">
                             <textarea
-                                id="about"
-                                name="about"
+                                id="description"
+                                name="description"
+                                value={values.description}
+                                onChange={changeHandler}
                                 required
                                 rows={3}
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                defaultValue={''}
                             />
                         </div>
                         <p className="mt-3 text-sm leading-6 text-gray-600">Write few words about your product.</p>

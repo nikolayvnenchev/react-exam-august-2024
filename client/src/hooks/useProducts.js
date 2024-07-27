@@ -30,5 +30,11 @@ export function useGetOneProducts(productId) {
     return [
         product,
         setProduct
-    ]
+    ];
+}
+
+export function useCreateProduct() {
+  const createProductHandler = (productData) => productsAPI.create(productData);
+
+  return createProductHandler;
 }

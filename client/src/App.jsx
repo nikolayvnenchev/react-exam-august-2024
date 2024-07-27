@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { AuthContext } from './contexts/AuthContext'
 
 import Header from "./components/header/Header"
 import Home from './components/home/Home'
@@ -9,9 +10,8 @@ import Login from './components/login/Login'
 import Register from './components/register/Register'
 import Details from './components/details/Details'
 import Products from './components/products/Products'
-import Create from './components/create/Create'
 import Logout from './components/logout/Logout'
-import { AuthContext } from './contexts/AuthContext'
+import CreateProduct from './components/create/Create'
 
 function App() {
     // TODO remove this from App component
@@ -40,7 +40,7 @@ function App() {
                     <Route path='/products' element={<Products />} />
                     <Route path='/products/:productId/details' element={<Details />} />
                     <Route path='/contact' element={<Contact />} />
-                    <Route path='/create' element={<Create />} />
+                    <Route path='/create' element={<CreateProduct />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/register' element={<Register />} />
                     <Route path='/logout' element={<Logout />} />
