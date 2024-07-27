@@ -1,7 +1,36 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useRegister } from '../../hooks/useAuth';
+import { useState } from 'react';
+import { useForm } from '../../hooks/useForm';
 
+const initialValues = { email: '', password: '', repass: '' };
 
 export default function Register() {
+    const [error, setError] = useState('');
+    const register = useRegister();
+    const navigate = useNavigate();
+
+    const registerHandler = async (values) => {
+        if (values.password !== values.repass) {
+            
+            return setError('Paswords do not match!')
+        }
+
+        try {
+            await register(values.email, values.password)
+            
+            navigate('/');
+        } catch (err) {
+            setError(err.message);
+        }
+    };
+
+    const {
+        values,
+        changeHandler,
+        submitHandler,
+    } = useForm(initialValues, registerHandler);
+
     return (
         <>
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -12,7 +41,7 @@ export default function Register() {
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form action="#" method="POST" className="space-y-6">
+                    <form method="POST" onSubmit={submitHandler} className="space-y-6">
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                                 Email address
@@ -22,6 +51,8 @@ export default function Register() {
                                     id="email"
                                     name="email"
                                     type="email"
+                                    value={values.email}
+                                    onChange={changeHandler}
                                     required
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -45,6 +76,8 @@ export default function Register() {
                                     id="password"
                                     name="password"
                                     type="password"
+                                    value={values.password}
+                                    onChange={changeHandler}
                                     required
                                     autoComplete="current-password"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -61,10 +94,18 @@ export default function Register() {
                                     id="repass"
                                     name="repass"
                                     type="password"
+                                    value={values.repass}
+                                    onChange={changeHandler}
                                     required
                                     autoComplete="repass"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
+
+                                {error && (
+                                    <p>
+                                        <span style={{ fontSize: '14px', color: 'red' }}>{error}</span>
+                                    </p>
+                                )}
                             </div>
                         </div>
 

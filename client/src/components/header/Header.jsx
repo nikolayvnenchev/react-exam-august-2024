@@ -1,12 +1,13 @@
 import { Link, NavLink } from 'react-router-dom'
 
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { AuthContext } from '../../contexts/AuthContext'
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
+    const { isAuthenticated } = useContext(AuthContext);
 
     return (
         <header className="absolute inset-x-0 top-0 z-50">
@@ -56,30 +57,40 @@ export default function Header() {
                     >
                         Products
                     </NavLink>
-                    <NavLink
-                        to="/create"
-                        className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
-                    >
-                        Create Product
-                    </NavLink>
-                    <NavLink
-                        to="/login"
-                        className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
-                    >
-                        Login
-                    </NavLink>
-                    <NavLink
-                        to="/register"
-                        className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
-                    >
-                        Register
-                    </NavLink>
-                    <NavLink
-                        to="/logout"
-                        className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
-                    >
-                        Logout
-                    </NavLink>
+                    {isAuthenticated
+                        ? (
+                            <div id="user" className="hidden lg:flex lg:gap-x-12">
+                                <NavLink
+                                    to="/create"
+                                    className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                                >
+                                    Create Product
+                                </NavLink>
+                                <NavLink
+                                    to="/logout"
+                                    className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                                >
+                                    Logout
+                                </NavLink>
+                            </div>
+                        )
+                        : (
+                            <div id="guest" className="hidden lg:flex lg:gap-x-12">
+                                <NavLink
+                                    to="/login"
+                                    className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                                >
+                                    Login
+                                </NavLink>
+                                <NavLink
+                                    to="/register"
+                                    className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                                >
+                                    Register
+                                </NavLink>
+                            </div>
+                        )
+                    }
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
 

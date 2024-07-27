@@ -14,13 +14,16 @@ import Logout from './components/logout/Logout'
 import { AuthContext } from './contexts/AuthContext'
 
 function App() {
+    // TODO remove this from App component
     const [authState, setAuthState] = useState({});
 
     const changeAuthState = (state) => {
+        // TODO validation
         setAuthState(state);
     };
 
     const contextData = {
+        userId: authState._id,
         email: authState.email,
         accessToken: authState.accessToken,
         isAuthenticated: !!authState.email,
