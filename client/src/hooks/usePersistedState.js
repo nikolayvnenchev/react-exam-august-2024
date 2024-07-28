@@ -14,9 +14,13 @@ export default function usePersistState(key, initialState) {
     });
 
     const updateState = (value) => {
-        localStorage.setItem(key, JSON.stringify(value));
+        const newState = typeof value === 'function'
+            ? value(state)
+            : value;
+            
+        localStorage.setItem(key, JSON.stringify(newState));
 
-        setState(value);
+        setState(newState);
     };
 
     return [state, updateState];
