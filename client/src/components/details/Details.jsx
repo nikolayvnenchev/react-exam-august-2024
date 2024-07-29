@@ -16,21 +16,24 @@ export default function Details() {
     const createComment = useCreateComment();
     const [product] = useGetOneProducts(productId);
     const { isAuthenticated } = useContext(AuthContext);
+    const { userId, email } = useContext(AuthContext);
 
     const {
-        values,
         changeHandler,
-        submitHandler
+        submitHandler,
+        values,
     } = useForm(initialValues, async ({ comment }) => {
         try {
             const newComment = await createComment(productId, comment);
-            
-            setComments(oldComments => [...oldComments, newComment]);
+
+            setComments(oldComments => [...oldComments, {...newComment, author: { email }}]);
         } catch (err) {
             console.log(err.message);
         }
     });
 
+    const isOwner = userId === product._ownerId;
+    
     return (
         <div className="mt-40 mb-20 text-center ">
             <div className="hidden sm:mb-8 sm:flex sm:justify-center">
@@ -75,31 +78,34 @@ export default function Details() {
                     {comments.length === 0 && <p className="no-comment">No comments.</p>}
                 </div>
 
-                <div className='justify-center flex gap-x-2'>
-                    <Link
-                        to={`/products`}
-                        className="mt-5 flex w-60 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    >
-                        Edit
-                    </Link>
+                {isOwner && (
+                    <div className='justify-center flex gap-x-2'>
+                        <Link
+                            to={`/products`}
+                            className="mt-5 flex w-60 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        >
+                            Edit
+                        </Link>
 
-                    <Link
-                        to={`/`}
-                        className="mt-5 flex w-60 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    >
-                        Delete
-                    </Link>
-                </div>
+                        <Link
+                            to={`/`}
+                            className="mt-5 flex w-60 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        >
+                            Delete
+                        </Link>
+                    </div>
+                )}
+
             </div>
-            {isAuthenticated && (
+            {isAuthenticated && !isOwner && (
                 <div className="mt-10 mb-20 border">
                     <label>Add new comment:</label>
                     <form className="form" onSubmit={submitHandler}>
                         <textarea
                             name="comment"
                             placeholder="Comment......"
-                            value={values.comment}
                             onChange={changeHandler}
+                            value={values.comment}
                         ></textarea>
                         <input className="btn submit" type="submit" value="Add Comment" />
                     </form>
