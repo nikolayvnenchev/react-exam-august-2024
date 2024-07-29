@@ -1,7 +1,3 @@
-import { useEffect, useState } from 'react';
-
-import productsAPI from '../../api/products-api';
-
 import ProductsItem from './products-item/ProductsItem';
 import { useGetAllProducts } from '../../hooks/useProducts';
 
