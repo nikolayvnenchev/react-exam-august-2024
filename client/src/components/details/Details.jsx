@@ -37,6 +37,12 @@ export default function Details() {
     const isOwner = userId === product._ownerId;
 
     const productDeleteHandler = async () => {
+        const confirmDelete = confirm(`If you realy want to delete ${product.name}, please click on "OK".`)
+
+        if (!confirmDelete) {
+            return;
+        }
+
         try {
             await productsAPI.removeProduct(productId);
 

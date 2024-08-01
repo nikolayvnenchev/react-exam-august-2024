@@ -61,7 +61,10 @@ SoftUni React Project
 ## 9. Refactoring
     [x] Extract auth state from App component
     [x] Persist auth state
-    [ ] Comments
+    [x] Comments
+    [x] Edit
+    [x] Delete
+    [x] Route guards
 
 ## Notes
   1. Latest Games

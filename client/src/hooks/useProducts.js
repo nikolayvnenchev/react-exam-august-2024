@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import productsAPI from "../api/products-api";
 
 export function useGetAllProducts() {
-    const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -17,20 +17,27 @@ export function useGetAllProducts() {
 }
 
 export function useGetOneProducts(productId) {
-    const [product, setProduct] = useState({});
+  const [product, setProduct] = useState({
+    name: '',
+    brand: '',
+    price: '',
+    imageUrl: '',
+    color: '',
+    description: '',
+  });
 
-    useEffect(() => {
-        (async () => {
-            const result = await productsAPI.getOneProduct(productId);
+  useEffect(() => {
+    (async () => {
+      const result = await productsAPI.getOneProduct(productId);
 
-            setProduct(result);
-        })();
-    }, [productId]);
+      setProduct(result);
+    })();
+  }, [productId]);
 
-    return [
-        product,
-        setProduct
-    ];
+  return [
+    product,
+    setProduct
+  ];
 }
 
 export function useCreateProduct() {

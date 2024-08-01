@@ -12,6 +12,8 @@ import Logout from './components/logout/Logout'
 import CreateProduct from './components/create/Create'
 import { AuthContextProvider } from './contexts/AuthContext'
 import EditProduct from './components/edit/Edit'
+import PrivateRouteGuard from './components/routeGuards/PrivateRouteGuard'
+import PublicRouteGuard from './components/routeGuards/PublicRouteGuard'
 
 function App() {
     return (
@@ -21,14 +23,18 @@ function App() {
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/about' element={<About />} />
+                    <Route path='/contact' element={<Contact />} />
                     <Route path='/products' element={<Products />} />
                     <Route path='/products/:productId/details' element={<Details />} />
-                    <Route path='/products/:productId/edit' element={<EditProduct />} />
-                    <Route path='/contact' element={<Contact />} />
-                    <Route path='/create' element={<CreateProduct />} />
-                    <Route path='/login' element={<Login />} />
-                    <Route path='/register' element={<Register />} />
-                    <Route path='/logout' element={<Logout />} />
+                    <Route element={<PublicRouteGuard />}>
+                        <Route path='/login' element={<Login />} />
+                        <Route path='/register' element={<Register />} />
+                    </Route>
+                    <Route element={<PrivateRouteGuard />}>
+                        <Route path='/products/:productId/edit' element={<EditProduct />} />
+                        <Route path='/create' element={<CreateProduct />} />
+                        <Route path='/logout' element={<Logout />} />
+                    </Route>
                 </Routes>
             </div>
         </AuthContextProvider>

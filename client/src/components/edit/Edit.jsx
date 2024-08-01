@@ -3,25 +3,16 @@ import { useForm } from "../../hooks/useForm";
 import { useGetOneProducts } from "../../hooks/useProducts";
 import productsAPI from "../../api/products-api";
 
-const initialValues = {
-    name: '',
-    brand: '',
-    price: '',
-    imageUrl: '',
-    color: '',
-    description: '',
-}
-
 export default function EditProduct() {
     const navigate = useNavigate();
     const { productId } = useParams();
-    const [product, setProduct] = useGetOneProducts(productId);
+    const [product] = useGetOneProducts(productId);
 
     const {
         values,
         changeHandler,
         submitHandler,
-    } = useForm(Object.assign(initialValues, product), async (values) => {
+    } = useForm(product, async (values) => {
         const updatedProduct = await productsAPI.updateProduct(productId, values);
 
         navigate(`/products/${productId}/details`);
