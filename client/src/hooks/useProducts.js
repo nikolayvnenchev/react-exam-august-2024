@@ -18,7 +18,7 @@ export function useGetAllProducts() {
       }
     })();
     // productsAPI.getAll().then(result => setProducts(result));
-  }, []);
+  }, [navigate]);
 
   return [products, setProducts]
 }
