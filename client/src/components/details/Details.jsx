@@ -1,16 +1,18 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useGetOneProducts } from "../../hooks/useProducts";
 import { useForm } from "../../hooks/useForm";
 import { useGetAllComments, useCreateComment } from "../../hooks/useComments";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import productsAPI from "../../api/products-api";
 
 const initialValues = {
     comment: ''
 };
 
 export default function Details() {
+    const navigate = useNavigate();
     const { productId } = useParams();
     const [comments, setComments] = useGetAllComments(productId);
     const createComment = useCreateComment();
@@ -33,6 +35,16 @@ export default function Details() {
     });
 
     const isOwner = userId === product._ownerId;
+
+    const productDeleteHandler = async () => {
+        try {
+            await productsAPI.removeProduct(productId);
+
+            navigate('/products')
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
     
     return (
         <div className="mt-40 mb-20 text-center ">
@@ -81,14 +93,15 @@ export default function Details() {
                 {isOwner && (
                     <div className='justify-center flex gap-x-2'>
                         <Link
-                            to={`/products`}
+                            to={`/products/${productId}/edit`}
                             className="mt-5 flex w-60 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
                             Edit
                         </Link>
 
                         <Link
-                            to={`/`}
+                            to={`#`}
+                            onClick={productDeleteHandler}
                             className="mt-5 flex w-60 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
                             Delete
