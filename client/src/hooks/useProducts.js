@@ -1,14 +1,21 @@
 import { useEffect, useState } from "react";
 import productsAPI from "../api/products-api";
+import { useNavigate } from "react-router-dom";
 
 export function useGetAllProducts() {
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     (async () => {
-      const result = await productsAPI.getAll()
+      try {
+        const result = await productsAPI.getAll()
 
-      setProducts(result);
+        setProducts(result);
+      } catch (err) {
+        navigate('/not-found')
+      }
     })();
     // productsAPI.getAll().then(result => setProducts(result));
   }, []);
@@ -26,13 +33,19 @@ export function useGetOneProducts(productId) {
     description: '',
   });
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     (async () => {
-      const result = await productsAPI.getOneProduct(productId);
+      try {
+        const result = await productsAPI.getOneProduct(productId);
 
-      setProduct(result);
+        setProduct(result);
+      } catch (err) {
+        navigate('/not-found')
+      }
     })();
-  }, [productId]);
+  }, [productId, navigate]);
 
   return [
     product,

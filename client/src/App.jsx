@@ -14,6 +14,7 @@ import { AuthContextProvider } from './contexts/AuthContext'
 import EditProduct from './components/edit/Edit'
 import PrivateRouteGuard from './components/routeGuards/PrivateRouteGuard'
 import PublicRouteGuard from './components/routeGuards/PublicRouteGuard'
+import PageNotFound from './components/not-found/NotFound'
 
 function App() {
     return (
@@ -35,6 +36,8 @@ function App() {
                         <Route path='/create' element={<CreateProduct />} />
                         <Route path='/logout' element={<Logout />} />
                     </Route>
+                    <Route path='/not-found' element={<PageNotFound />} />
+                    <Route path="/*" element={<PageNotFound />} />
                 </Routes>
             </div>
         </AuthContextProvider>
