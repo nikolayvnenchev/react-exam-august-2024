@@ -31,7 +31,7 @@ export default function Details() {
             const newComment = await createComment(productId, comment);
             setComments(oldComments => [...oldComments, { ...newComment, author: { email } }]);
         } catch (err) {
-            console.log(err.message);
+            console.log(`You can not add a comment at tis time!`);
         }
     });
 
@@ -42,7 +42,7 @@ export default function Details() {
             await productsAPI.removeProduct(productId);
             navigate('/products')
         } catch (err) {
-            console.log(err.message);
+            console.log(`You can not delete ${productId} at this time!`);
         }
     }
 
@@ -65,7 +65,7 @@ export default function Details() {
                 <img src={product.imageUrl} style={{ width: 'auto', height: '400px' }} />
             </div>
             <div className="mt-6">
-                <div className="flex justify-center">
+                <div className=" justify-center gap-0">
                     <div className="px-4 py-2">
                         <p className="text-sm font-medium leading-0 text-gray-900">Name</p>
                         <p className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{product.name}</p>
@@ -82,9 +82,9 @@ export default function Details() {
                         <p className="text-sm font-medium leading-6 text-gray-900">Color</p>
                         <p className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{product.color}</p>
                     </div>
-                    <div className="px-4 py-2">
+                    <div className="px-0 py-2">
                         <p className="text-sm font-medium leading-6 text-gray-900">Description</p>
-                        <p className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                        <p className="px-60 mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                             {product.description}
                         </p>
                     </div>
