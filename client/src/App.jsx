@@ -15,11 +15,12 @@ import EditProduct from './components/edit/Edit'
 import PrivateRouteGuard from './components/routeGuards/PrivateRouteGuard'
 import PublicRouteGuard from './components/routeGuards/PublicRouteGuard'
 import PageNotFound from './components/not-found/NotFound'
+import Footer from './components/footer/Footer'
 
 function App() {
     return (
         <AuthContextProvider>
-            <div className="bg-white">
+            <div className="main">
                 <Header />
                 <Routes>
                     <Route path='/' element={<Home />} />
@@ -39,6 +40,7 @@ function App() {
                     <Route path='/not-found' element={<PageNotFound />} />
                     <Route path="/*" element={<PageNotFound />} />
                 </Routes>
+                <Footer />
             </div>
         </AuthContextProvider>
     )
