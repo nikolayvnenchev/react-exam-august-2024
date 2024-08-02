@@ -10,6 +10,7 @@ export default function EditProduct() {
 
     const {
         values,
+        errors,
         changeHandler,
         submitHandler,
     } = useForm(product, async (values) => {
@@ -42,6 +43,7 @@ export default function EditProduct() {
                                 autoComplete="name"
                                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
+                            {errors.name && <p className="mt-2 text-sm text-red-600">{errors.name}</p>}
                         </div>
                     </div>
 
@@ -60,6 +62,7 @@ export default function EditProduct() {
                                 autoComplete="brand"
                                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
+                            {errors.brand && <p className="mt-2 text-sm text-red-600">{errors.brand}</p>}
                         </div>
                     </div>
 
@@ -78,6 +81,7 @@ export default function EditProduct() {
                                 autoComplete="price"
                                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
+                            {errors.price && <p className="mt-2 text-sm text-red-600">{errors.price}</p>}
                         </div>
                     </div>
 
@@ -96,6 +100,7 @@ export default function EditProduct() {
                                 autoComplete="imageUrl"
                                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
+                            {errors.imageUrl && <p className="mt-2 text-sm text-red-600">{errors.imageUrl}</p>}
                         </div>
                     </div>
 
@@ -114,6 +119,7 @@ export default function EditProduct() {
                                 autoComplete="color"
                                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
+                            {errors.color && <p className="mt-2 text-sm text-red-600">{errors.color}</p>}
                         </div>
                     </div>
 
@@ -131,14 +137,15 @@ export default function EditProduct() {
                                 rows={3}
                                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
+                            {errors.description && <p className="mt-2 text-sm text-red-600">{errors.description}</p>}
                         </div>
                         <p className="mt-3 text-sm leading-6 text-gray-600">Write few words about your product.</p>
                     </div>
 
-                    <div className="mt-6 flex items-center justify-center gap-x-6">
+                    <div className="mt-8">
                         <button
                             type="submit"
-                            className="flex justify-center rounded-md bg-indigo-600 px-40 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            className="w-full rounded-md bg-indigo-600 px-20 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
                             Confirm Edit
                         </button>

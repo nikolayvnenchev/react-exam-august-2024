@@ -22,12 +22,13 @@ export default function CreateProduct() {
             navigate(`/products/${productId}/details`);
         } catch (err) {
             //TODO Set error state and display error
-            console.log(err.message);
+            console.log(`Can not create product due to error!`);
         }
     };
 
     const {
         values,
+        errors,
         changeHandler,
         submitHandler,
     } = useForm(initialValues, createHandler)
@@ -56,6 +57,7 @@ export default function CreateProduct() {
                                 autoComplete="name"
                                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
+                            {errors.name && <p className="mt-2 text-sm text-red-600">{errors.name}</p>}
                         </div>
                     </div>
 
@@ -74,6 +76,7 @@ export default function CreateProduct() {
                                 autoComplete="brand"
                                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
+                            {errors.brand && <p className="mt-2 text-sm text-red-600">{errors.brand}</p>}
                         </div>
                     </div>
 
@@ -92,6 +95,7 @@ export default function CreateProduct() {
                                 autoComplete="price"
                                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
+                            {errors.price && <p className="mt-2 text-sm text-red-600">{errors.price}</p>}
                         </div>
                     </div>
 
@@ -110,6 +114,7 @@ export default function CreateProduct() {
                                 autoComplete="imageUrl"
                                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
+                            {errors.imageUrl && <p className="mt-2 text-sm text-red-600">{errors.imageUrl}</p>}
                         </div>
                     </div>
 
@@ -128,6 +133,7 @@ export default function CreateProduct() {
                                 autoComplete="color"
                                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
+                            {errors.color && <p className="mt-2 text-sm text-red-600">{errors.color}</p>}
                         </div>
                     </div>
 
@@ -145,6 +151,7 @@ export default function CreateProduct() {
                                 rows={3}
                                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
+                            {errors.description && <p className="mt-2 text-sm text-red-600">{errors.description}</p>}
                         </div>
                         <p className="mt-3 text-sm leading-6 text-gray-600">Write few words about your product.</p>
                     </div>
