@@ -1370,7 +1370,7 @@
                 brand: "Xing",
                 price: "135",
                 imageUrl: "https://as2.ftcdn.net/v2/jpg/08/50/64/53/1000_F_850645327_9nmgpvc3Z1YFrl9l720NSf4FmfjKszjs.jpg",
-                color: "Orange/White/Light-Blue",
+                color: "Orange-White-Blue",
                 description: "High quality professional sneakers for basketball lovers.",
                 _createdOn: 1722115941058,
                 _id: "8ca46b3c-3eb8-4df4-a0af-04259d9d5b3b"
