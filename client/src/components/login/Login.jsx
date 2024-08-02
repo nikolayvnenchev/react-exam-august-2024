@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useLogin } from '../../hooks/useAuth';
 import { useState } from 'react';
@@ -10,19 +10,33 @@ export default function Login() {
 
     const login = useLogin();
     const navigate = useNavigate();
-    
+
+    const isValidEmail = (email) => {
+        const emailRegex = /^[a-zA-Z0-9-_.]+@[a-zA-Z]+\.[a-zA-Z]+$/;
+        return email.length >= 9 && emailRegex.test(email);
+    };
+
+    const isValidPassword = (password) => {
+        const passwordRegex = /^[a-zA-Z\d]{5,20}$/;
+        return passwordRegex.test(password);
+    };
 
     const loginHandler = async ({ email, password }) => {
-        // if (values.password !== values.repass) {
-            
-        //     return setError('Paswords do not match!')
-        // }
+        if (!isValidEmail(email)) {
+            setError("Invalid email address or character. Must be at least 9 characters and valid!");
+            return;
+        }
+
+        if (!isValidPassword(password)) {
+            setError("Password must be at least 5 characters long and contain letters or numbers!");
+            return;
+        }
 
         try {
-            await login(email, password)
+            await login(email, password);
             navigate('/');
         } catch (err) {
-            setError("Password do not match!");
+            setError("Email or Password do not match!");
         }
     };
 
@@ -77,14 +91,14 @@ export default function Login() {
                                     autoComplete="current-password"
                                     className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
-
-                                {error && (
-                                    <p>
-                                        <span style={{ fontSize: '14px', color: 'red' }}>{error}</span>
-                                    </p>
-                                )}
                             </div>
                         </div>
+
+                        {error && (
+                            <p>
+                                <span style={{ fontSize: '14px', color: 'red' }}>{error}</span>
+                            </p>
+                        )}
 
                         <div>
                             <button
@@ -105,5 +119,5 @@ export default function Login() {
                 </div>
             </div>
         </>
-    )
+    );
 }

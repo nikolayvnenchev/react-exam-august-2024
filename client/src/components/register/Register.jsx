@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
 import { useRegister } from '../../hooks/useAuth';
 import { useState } from 'react';
 import { useForm } from '../../hooks/useForm';
@@ -11,14 +11,27 @@ export default function Register() {
     const navigate = useNavigate();
 
     const registerHandler = async (values) => {
+        setError(''); // Clear previous errors
+
+        // Email validation: minimum 9 characters and valid email format
+        const emailRegex = /^[a-zA-Z0-9-_.]+@[a-zA-Z]+\.[a-zA-Z]+$/;
+        if (!emailRegex.test(values.email) || values.email.length < 9) {
+            return setError('Invalid email address or character. Must be at least 9 characters and valid!');
+        }
+
+        // Password validation: minimum 5 characters, contains letters and/or numbers
+        const passwordRegex = /^[a-zA-Z\d]{5,20}$/;
+        if (!passwordRegex.test(values.password)) {
+            return setError('Invalid Password! Password must be between 5 and 20 characters long and contain letters or numbers!');
+        }
+
+        // Passwords match validation
         if (values.password !== values.repass) {
-            
-            return setError('Paswords do not match!')
+            return setError('Passwords do not match!');
         }
 
         try {
-            await register(values.email, values.password)
-            
+            await register(values.email, values.password);
             navigate('/');
         } catch (err) {
             setError(err.message);
@@ -123,5 +136,5 @@ export default function Register() {
                 </div>
             </div>
         </>
-    )
+    );
 }
