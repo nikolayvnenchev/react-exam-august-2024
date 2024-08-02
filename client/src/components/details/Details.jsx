@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { useGetOneProducts } from "../../hooks/useProducts";
 import { useForm } from "../../hooks/useForm";
 import { useGetAllComments, useCreateComment } from "../../hooks/useComments";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import productsAPI from "../../api/products-api";
+import ModalDelete from './ModalDelete'; // Adjust the import path as necessary
 
 const initialValues = {
     comment: ''
@@ -19,6 +20,7 @@ export default function Details() {
     const [product] = useGetOneProducts(productId);
     const { isAuthenticated } = useContext(AuthContext);
     const { userId, email } = useContext(AuthContext);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const {
         changeHandler,
@@ -27,8 +29,7 @@ export default function Details() {
     } = useForm(initialValues, async ({ comment }) => {
         try {
             const newComment = await createComment(productId, comment);
-
-            setComments(oldComments => [...oldComments, {...newComment, author: { email }}]);
+            setComments(oldComments => [...oldComments, { ...newComment, author: { email } }]);
         } catch (err) {
             console.log(err.message);
         }
@@ -37,21 +38,27 @@ export default function Details() {
     const isOwner = userId === product._ownerId;
 
     const productDeleteHandler = async () => {
-        const confirmDelete = confirm(`If you realy want to delete ${product.name}, please click on "OK".`)
-
-        if (!confirmDelete) {
-            return;
-        }
-
         try {
             await productsAPI.removeProduct(productId);
-
             navigate('/products')
         } catch (err) {
             console.log(err.message);
         }
     }
-    
+
+    const handleDeleteClick = () => {
+        setIsModalOpen(true);
+    }
+
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    }
+
+    const handleConfirmDelete = async () => {
+        setIsModalOpen(false);
+        await productDeleteHandler();
+    }
+
     return (
         <div className="mt-40 mb-20 text-center ">
             <div className="hidden sm:mb-8 sm:flex sm:justify-center">
@@ -106,29 +113,42 @@ export default function Details() {
                         </Link>
 
                         <Link
-                            to={`#`}
-                            onClick={productDeleteHandler}
+                            to="#"
+                            onClick={handleDeleteClick}
                             className="mt-5 flex w-60 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
                             Delete
                         </Link>
                     </div>
                 )}
-
             </div>
+
             {isAuthenticated && !isOwner && (
-                <div className="mt-10 mb-20 border">
-                    <label>Add new comment:</label>
-                    <form className="form" onSubmit={submitHandler}>
-                        <textarea
-                            name="comment"
-                            placeholder="Comment......"
-                            onChange={changeHandler}
-                            value={values.comment}
-                        ></textarea>
-                        <input className="btn submit" type="submit" value="Add Comment" />
-                    </form>
+                <div className="mt-10 mb-20 flex justify-center">
+                    <div className="flex flex-col items-center">
+                        <label htmlFor="comment" className="block text-sm font-medium leading-6 text-gray-900 mb-2">Add new comment:</label>
+                        <form className="form flex flex-col items-center" onSubmit={submitHandler}>
+                            <textarea
+                                id="comment"
+                                name="comment"
+                                placeholder="Comment......"
+                                onChange={changeHandler}
+                                value={values.comment}
+                                className="px-10 py-10 p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 mb-2"
+                            ></textarea>
+                            <button className="rounded-md bg-indigo-600 px-20 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500" type="submit">
+                                Add Comment
+                            </button>
+                        </form>
+                    </div>
                 </div>
+            )}
+
+            {isModalOpen && (
+                <ModalDelete
+                    onCancel={handleCancel}
+                    onConfirm={handleConfirmDelete}
+                />
             )}
         </div>
     )
