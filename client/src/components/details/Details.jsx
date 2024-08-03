@@ -12,6 +12,11 @@ const initialValues = {
     comment: ''
 };
 
+const commentValidation = (comment) => {
+    const regex = /^[A-Z][a-zA-Z0-9\s.,!?"-]{2,49}$/;
+    return regex.test(comment);
+};
+
 export default function Details() {
     const navigate = useNavigate();
     const { productId } = useParams();
@@ -21,17 +26,24 @@ export default function Details() {
     const { isAuthenticated } = useContext(AuthContext);
     const { userId, email } = useContext(AuthContext);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [error, setError] = useState('');
 
     const {
         changeHandler,
         submitHandler,
         values,
     } = useForm(initialValues, async ({ comment }) => {
+        if (!commentValidation(comment)) {
+            setError('Comment must start with an uppercase letter and be between 3 and 50 characters long. You can only use letters, numbers, spaces, or the following symbols !?,-."');
+            return;
+        }
+        
+        setError('');
         try {
             const newComment = await createComment(productId, comment);
             setComments(oldComments => [...oldComments, { ...newComment, author: { email } }]);
         } catch (err) {
-            console.log(`You can not add a comment at tis time!`);
+            setError(`You cannot add a comment at this time!`);
         }
     });
 
@@ -42,7 +54,7 @@ export default function Details() {
             await productsAPI.removeProduct(productId);
             navigate('/products')
         } catch (err) {
-            console.log(`You can not delete ${productId} at this time!`);
+            console.log(`You cannot delete ${productId} at this time!`);
         }
     }
 
@@ -136,6 +148,7 @@ export default function Details() {
                                 value={values.comment}
                                 className="px-10 py-10 p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 mb-2"
                             ></textarea>
+                            {error && <p className="text-red-500 text-sm">{error}</p>}
                             <button className="rounded-md bg-indigo-600 px-20 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500" type="submit">
                                 Add Comment
                             </button>
