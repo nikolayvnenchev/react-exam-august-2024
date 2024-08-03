@@ -1377,71 +1377,31 @@
             },
             "3fba97ec-c417-48d9-8a02-7cffd4722dce": {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-                name: "Gold Foldable Bicycle",
-                brand: "CAMP",
+                name: "Black Swan Bicycle",
+                brand: "NVX",
                 price: "650",
-                imageUrl: "https://as1.ftcdn.net/v2/jpg/02/34/95/64/1000_F_234956425_JFdJ1zSitfgwvJx5TD9xbXlOBOTgeqKn.jpg",
-                color: "Blue/Gold",
+                imageUrl: "https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                color: "Black",
                 description: "The perfect foldable bike.",
                 _createdOn: 1722185122776,
                 _id: "3fba97ec-c417-48d9-8a02-7cffd4722dce"
             }
         },
         comments: {
-        },
-        records: {
-            i01: {
-                name: "John1",
-                val: 1,
-                _createdOn: 1613551388703
+            "d260f36a-00be-4a6d-b66c-d76645817cc7": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "productId": "3ecf8639-af39-4b68-8d95-9297f360ef5a",
+                "text": "Nice T-Shirt!",
+                "_createdOn": 1722675907124,
+                "_id": "d260f36a-00be-4a6d-b66c-d76645817cc7"
             },
-            i02: {
-                name: "John2",
-                val: 1,
-                _createdOn: 1613551388713
-            },
-            i03: {
-                name: "John3",
-                val: 2,
-                _createdOn: 1613551388723
-            },
-            i04: {
-                name: "John4",
-                val: 2,
-                _createdOn: 1613551388733
-            },
-            i05: {
-                name: "John5",
-                val: 2,
-                _createdOn: 1613551388743
-            },
-            i06: {
-                name: "John6",
-                val: 3,
-                _createdOn: 1613551388753
-            },
-            i07: {
-                name: "John7",
-                val: 3,
-                _createdOn: 1613551388763
-            },
-            i08: {
-                name: "John8",
-                val: 2,
-                _createdOn: 1613551388773
-            },
-            i09: {
-                name: "John9",
-                val: 3,
-                _createdOn: 1613551388783
-            },
-            i10: {
-                name: "John10",
-                val: 1,
-                _createdOn: 1613551388793
+            "fb1d4a24-8a34-4496-8de9-794104919bc6": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "productId": "7ae204b3-e794-453e-b6fc-9f63c7012ec4",
+                "text": "The best BBall ever.",
+                "_createdOn": 1722675975772,
+                "_id": "fb1d4a24-8a34-4496-8de9-794104919bc6"
             }
-        },
-        likes: {
         }
     };
     var rules$1 = {
