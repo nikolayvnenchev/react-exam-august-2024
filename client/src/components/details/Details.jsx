@@ -60,7 +60,7 @@ export default function Details() {
     }
 
     return (
-        <div className="mt-40 mb-20 text-center ">
+        <div className="mt-20 mb-20 text-center ">
             <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                 <img src={product.imageUrl} style={{ width: 'auto', height: '400px' }} />
             </div>
