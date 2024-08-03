@@ -1,3 +1,6 @@
+import styles from './About.module.css'
+
+
 export default function About() {
     return (
         <div className="mt-20 px-6 py-12 lg:px-8">
@@ -7,8 +10,8 @@ export default function About() {
                     style={{ width: 'auto', height: '400px' }}
                 />
             </div>
-            <div className="text-center mt-10 px-4 sm:px-10">
-                <h3 className="text-base font-semibold leading-7 text-gray-900">The SPORT store</h3>
+            <div className="p-0 text-center mt-10 px-4 sm:px-10">
+                <h3 className={styles['text-color']}>The SPORT store</h3>
                 <p className="mt-1 text-sm leading-6 text-gray-500">Established by Nikolay Nenchev in the summer of 1993 in Plovdiv, Bulgaria. Nikolay was profesional basketball player from Targovishte, Bulgaria. As a child he also trained Football, Kickboxing, Boxing, Wrestling, MMA and Track and Field. His endless love to sport drove him to the step to start his own business and to create the online platform THE SPORT SHOP to help people from all over the world to be involved with all kind of sports equipments.</p>
             </div>
         </div>
