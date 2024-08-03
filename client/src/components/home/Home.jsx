@@ -6,7 +6,7 @@ export default function Home() {
             <div className="mx-auto max-w-4xl py-32 sm:py-35">
                 <div className="text-center">
                     <h1 className="text-5xl font-bold tracking-tight text-gray-900">
-                        WELCOME to the SPORT  store !
+                        WELCOME to the SPORT shop !
                     </h1>
                 </div>
                 <div className="hidden sm:mb-8 sm:flex sm:justify-center">
@@ -17,7 +17,7 @@ export default function Home() {
                 </div>
                 <div className="text-center">
                     <p className="mt-6 text-lg leading-8 text-gray-600">
-                        All kind of sports equipments and accessoires. You are the one who choose!
+                    All kinds of sports equipment and accessories. You are the one who chooses!
                     </p>
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <Link
