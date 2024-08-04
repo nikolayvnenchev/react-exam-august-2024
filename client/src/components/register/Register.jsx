@@ -12,6 +12,10 @@ export default function Register() {
 
     const registerHandler = async (values) => {
         setError(''); // Clear previous errors
+        if (!values.email || !values.password || !values.repass) {
+            setError("All fields are required!");
+            return;
+        }
 
         // Email validation: minimum 9 characters and valid email format
         const emailRegex = /^[a-zA-Z0-9-_.]+@[a-zA-Z]+\.[a-zA-Z]+$/;
@@ -53,7 +57,7 @@ export default function Register() {
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                <form method="POST" onSubmit={submitHandler} className="space-y-6">
+                <form method="POST" noValidate onSubmit={submitHandler} className="space-y-6">
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                             Email address
@@ -62,7 +66,7 @@ export default function Register() {
                             <input
                                 id="email"
                                 name="email"
-                                type="email"
+                                type="text"
                                 value={values.email}
                                 onChange={changeHandler}
                                 required
@@ -109,7 +113,7 @@ export default function Register() {
                             />
 
                             {error && (
-                                <p>
+                                <p className='mt-4'>
                                     <span style={{ fontSize: '14px', color: 'red' }}>{error}</span>
                                 </p>
                             )}

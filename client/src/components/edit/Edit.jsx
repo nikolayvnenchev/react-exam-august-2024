@@ -27,7 +27,7 @@ export default function EditProduct() {
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                <form method="POST" onSubmit={submitHandler} className="space-y-6">
+                <form method="POST" noValidate onSubmit={submitHandler} className="space-y-6">
                     <div>
                         <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                             Product name

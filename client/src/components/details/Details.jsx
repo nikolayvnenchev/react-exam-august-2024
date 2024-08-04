@@ -54,7 +54,7 @@ export default function Details() {
             await productsAPI.removeProduct(productId);
             navigate('/products')
         } catch (err) {
-            console.log(`You cannot delete ${productId} at this time!`);
+            setError(`You cannot delete ${productId} at this time!`);
         }
     }
 

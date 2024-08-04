@@ -22,6 +22,11 @@ export default function Login() {
     };
 
     const loginHandler = async ({ email, password }) => {
+        if (!email || !password) {
+            setError("All fields are required!");
+            return;
+        }
+        
         if (!isValidEmail(email)) {
             setError("Invalid email address or character. Must be at least 9 characters and valid!");
             return;
@@ -55,7 +60,7 @@ export default function Login() {
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form method="POST" onSubmit={submitHandler} className="space-y-6">
+                    <form method="POST" noValidate onSubmit={submitHandler} className="space-y-6">
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                                 Email address
@@ -64,7 +69,7 @@ export default function Login() {
                                 <input
                                     id="email"
                                     name="email"
-                                    type="email"
+                                    type="text"
                                     value={values.email}
                                     onChange={changeHandler}
                                     required
