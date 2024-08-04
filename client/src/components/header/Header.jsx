@@ -34,26 +34,26 @@ export default function Header() {
                 <div className="hidden lg:flex lg:gap-x-12">
                     <NavLink
                         to="/"
-                        className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                        className={({ isActive }) => `hover-text${isActive ? ' underline' : ''}`}
                     // style={({ isActive }) => isActive ? 'underline' : ''}
                     >
                         Home
                     </NavLink>
                     <NavLink
                         to="/about"
-                        className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                        className={({ isActive }) => `hover-text${isActive ? ' underline' : ''}`}
                     >
                         About
                     </NavLink>
                     <NavLink
                         to="/contact"
-                        className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                        className={({ isActive }) => `hover-text${isActive ? ' underline' : ''}`}
                     >
                         Contact
                     </NavLink>
                     <NavLink
                         to="/products"
-                        className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                        className={({ isActive }) => `hover-text${isActive ? ' underline' : ''}`}
                     >
                         Products
                     </NavLink>
@@ -62,13 +62,13 @@ export default function Header() {
                             <div id="user" className="hidden lg:flex lg:gap-x-12">
                                 <NavLink
                                     to="/create"
-                                    className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                                    className={({ isActive }) => `hover-text${isActive ? ' underline' : ''}`}
                                 >
                                     Create Product
                                 </NavLink>
                                 <NavLink
                                     to="/logout"
-                                    className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                                    className={({ isActive }) => `hover-text${isActive ? ' underline' : ''}`}
                                 >
                                     Logout
                                 </NavLink>
@@ -78,13 +78,13 @@ export default function Header() {
                             <div id="guest" className="hidden lg:flex lg:gap-x-12">
                                 <NavLink
                                     to="/login"
-                                    className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                                    className={({ isActive }) => `hover-text${isActive ? ' underline' : ''}`}
                                 >
                                     Login
                                 </NavLink>
                                 <NavLink
                                     to="/register"
-                                    className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
+                                    className={({ isActive }) => `hover-text${isActive ? ' underline' : ''}`}
                                 >
                                     Register
                                 </NavLink>

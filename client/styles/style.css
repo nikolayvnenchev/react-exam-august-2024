@@ -3,10 +3,24 @@
 }
 
 .main header{
+    text-align: center;
+    font-family: 'Arial';
     background-color: white;
 }
 
+.hover-text:hover {
+    transform: scale(1.2);
+    display: inline-block;
+}
+
 .main footer{
+    text-align: center;
     font-size: small;
-    background-color: white;
+    font-family: 'Arial', sans-serif;
+    background-color: rgba(173, 166, 166, 0.244);
+}
+
+.hover-softuni:hover {
+    transform: scale(1.1);
+    display: inline-block;
 }
