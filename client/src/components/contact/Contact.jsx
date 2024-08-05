@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 export default function Contact() {
     useEffect(() => {
         const script = document.createElement('script');
-        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDi6E8QjgYvO7pmrPpj3fFrDk2-6ry4ifc`;
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBZNIr2KGTD6m2RkaP4IO8cgYtdzLcLImQ`;
         script.async = true;
         script.onload = () => {
             const map = new window.google.maps.Map(document.getElementById('map'), {
