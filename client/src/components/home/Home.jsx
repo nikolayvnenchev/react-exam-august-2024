@@ -11,7 +11,7 @@ export default function Home() {
                 </div>
                 <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                     <img
-                        src="https://t3.ftcdn.net/jpg/02/55/78/60/360_F_255786001_nqunh2BB5NWxpKyHaGWaelZo5qW3smsV.jpg"
+                        src="/images/home.jpg"
                         alt=""
                     />
                 </div>
