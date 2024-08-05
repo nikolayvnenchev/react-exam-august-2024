@@ -11,25 +11,25 @@ export default function Register() {
     const navigate = useNavigate();
 
     const registerHandler = async (values) => {
-        setError(''); // Clear previous errors
+        setError(''); 
         if (!values.email || !values.password || !values.repass) {
             setError("All fields are required!");
             return;
         }
 
-        // Email validation: minimum 9 characters and valid email format
+        
         const emailRegex = /^[a-zA-Z0-9-_.]+@[a-zA-Z]+\.[a-zA-Z]+$/;
         if (!emailRegex.test(values.email) || values.email.length < 9) {
             return setError('Invalid email address or character. Must be at least 9 characters and valid!');
         }
 
-        // Password validation: minimum 5 characters, contains letters and/or numbers
+        
         const passwordRegex = /^[a-zA-Z\d]{5,20}$/;
         if (!passwordRegex.test(values.password)) {
             return setError('Invalid Password! Password must be between 5 and 20 characters long and contain letters or numbers!');
         }
 
-        // Passwords match validation
+        
         if (values.password !== values.repass) {
             return setError('Passwords do not match!');
         }

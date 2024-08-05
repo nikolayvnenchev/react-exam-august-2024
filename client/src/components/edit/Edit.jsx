@@ -14,9 +14,15 @@ export default function EditProduct() {
         changeHandler,
         submitHandler,
     } = useForm(product, async (values) => {
-        const updatedProduct = await productsAPI.updateProduct(productId, values);
+        try {
 
-        navigate(`/products/${productId}/details`);
+            const updatedProduct = await productsAPI.updateProduct(productId, values);
+            
+            navigate(`/products/${productId}/details`);
+        } catch (err) {
+            console.log(`Can not edit this product due to technical error!`);
+            
+        }
     });
 
 

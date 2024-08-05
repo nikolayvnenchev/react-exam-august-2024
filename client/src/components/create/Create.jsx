@@ -21,8 +21,7 @@ export default function CreateProduct() {
 
             navigate(`/products/${productId}/details`);
         } catch (err) {
-            //TODO Set error state and display error
-            console.log(`Can not create product due to error!`);
+            console.log(`Can not create this product due to technical error!`);
         }
     };
 
