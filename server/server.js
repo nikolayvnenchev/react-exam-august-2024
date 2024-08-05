@@ -1322,17 +1322,14 @@
         users: {
             "35c62d76-8152-4626-8712-eeb96381bea8": {
                 email: "peter@abv.bg",
-                username: "Peter",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
             },
             "847ec027-f659-4086-8032-5173e2f9c93a": {
                 email: "george@abv.bg",
-                username: "George",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
             },
             "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
                 email: "admin@abv.bg",
-                username: "Admin",
                 hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
             }
         },
@@ -1346,7 +1343,7 @@
                 name: "Basic Tee T-Shirt",
                 brand: "H&M",
                 price: "30",
-                imageUrl: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+                imageUrl: "/images/t-shirt.jpg",
                 color: "Black",
                 description: "It is a casual T-Shirt made from 100% cotton.",
                 _createdOn: 1722113034732,
@@ -1357,7 +1354,7 @@
                 name: "Basketball Pro Edition",
                 brand: "Spalding",
                 price: "65",
-                imageUrl: "https://storage.needpix.com/rsynced_images/basketball-933173_1280.jpg",
+                imageUrl: "/images/basketball.jpg",
                 color: "Orange",
                 description: "Professional Basketball for all courts.",
                 _createdOn: 1722114311021,
@@ -1366,11 +1363,11 @@
             },
             "8ca46b3c-3eb8-4df4-a0af-04259d9d5b3b": {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-                name: "The Colorful Sneakers",
-                brand: "Xing",
-                price: "135",
-                imageUrl: "https://as2.ftcdn.net/v2/jpg/08/50/64/53/1000_F_850645327_9nmgpvc3Z1YFrl9l720NSf4FmfjKszjs.jpg",
-                color: "Orange-White-Blue",
+                name: "The Sneakers",
+                brand: "Nike",
+                price: "249",
+                imageUrl: "/images/sneakers.png",
+                color: "Grey",
                 description: "High quality professional sneakers for basketball lovers.",
                 _createdOn: 1722115941058,
                 _id: "8ca46b3c-3eb8-4df4-a0af-04259d9d5b3b"
@@ -1380,7 +1377,7 @@
                 name: "Black Swan Bicycle",
                 brand: "NVX",
                 price: "650",
-                imageUrl: "https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                imageUrl: "/images/bike.jpeg",
                 color: "Black",
                 description: "The perfect foldable bike.",
                 _createdOn: 1722185122776,
