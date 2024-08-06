@@ -1,73 +1,36 @@
 # react-exam-august-2024
-SoftUni React Project
 
-## 1. Initialize Project
-    [x] Initialize git repo
-    [x] Add softuni practice server
-    [x] Add base vite react project as client
-    [x] Cleanup client
-    [x]Add project resources - add folders as:    images, css, index html etc.
-    [x] Convert html to jsx
-    [x]Separate html into components
-## 2. React Router
-    [x] Install react-router-dom
-    [x] Setup react-router-dom
-    [x] Add routes in App.jsx
-    [x] Add links in the navigation
-## 3. Create Service Layer
-    [x] Service layer architecture disccusion
-    [x] Abstract requester
-    [x] Add games api
-    [x] Preseed practice server
-## 4. Page Implementations
-    [x] Game list
-    [x] Details
-    [x] Details link
-    [x] Details route
-    [x] Api function - getOne
-    [ ] Home - Latest Games
-## 5. Comments (Advanced)
-    [ ] Create service for nested resource `comments`
-    [ ] Post comment to server
-    [ ] Read comments from server
-    [ ] Add comments in the component
-    [ ] Clear form
-## 6. API Hooks
-    [x] Form Hook
-    [x] GameAPI Hooks
-    [ ] Comment Hooks
-## 7. Authentication
-    [x] Auth API
-        [x] Login
-        [x] Register
-        [x] Logout
-    [x] Auth API hook
-        [x] Login
-        [x] Register
-        [x] Logout
-    [x] Auth state & context
-    [x] Token management
-    [x] Login
-    [x] Register
-        [x] Add form validation
-    [x] Logout
-    [x] Authorized Requests
-## 8. UI Implementation 
-    [x] Dynamic navigation
-    [x] Create game
-        [x] API function
-        [x] Hook
-    [ ] Latest games
-## 9. Refactoring
-    [x] Extract auth state from App component
-    [x] Persist auth state
-    [x] Comments
-    [x] Edit
-    [x] Delete
-    [x] Route guards
+## 1. Overview
+This project is a single page application build with React and Vite. In this project have also been used Tailwind CSS and Google maps. The project is about an online platform called "The Sport Shop" where users can post their products and get feedback as comments from other users.
 
-## Notes
-  1. Latest Games
-     2. URL `http://localhost:3030/data/games?sortBy=_createdOn%20desc&pageSize=3`
-     3. USE URLSearchParams
-  2. seedData - line 1341 in server.js
+## 2. Project Architecture
+    The project is organized in a functionality-oriented architecture. Below is an overview of the main directories and files:
+
+    // !!! More info about the architecture !!!!
+
+## 3. installation
+    1 Clone the repository:
+        git clone https://github.com/nikolayvnenchev/react-exam-august-2024
+
+    2. Install dependencies:
+        npm install
+
+## 4. Usage
+
+    1. Start the development server:
+        1.1. Go to 
+            cd .\server\  
+
+        1.2 Run the server with:
+            node .\server.js
+
+        1.3 Open your browser and navigate to `http://localhost:3030/admin`.
+
+    2. Start the client:
+        1.1. Go to 
+            cd .\client\  
+
+        1.2 Run the server with:
+            npm run dev
+
+        1.3 Open your browser and navigate to `http://localhost:5173`.
