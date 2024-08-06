@@ -6,7 +6,7 @@ import { useGetAllComments, useCreateComment } from "../../hooks/useComments";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import productsAPI from "../../api/products-api";
-import ModalDelete from './ModalDelete'; // Adjust the import path as necessary
+import ModalDelete from './ModalDelete';
 
 const initialValues = {
     comment: ''
