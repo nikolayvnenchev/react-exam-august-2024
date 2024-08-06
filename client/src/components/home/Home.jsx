@@ -5,7 +5,7 @@ export default function Home() {
     return (
             <div className="mx-auto max-w-4xl py-32 sm:py-35">
                 <div className="text-center">
-                    <h1 className="text-5xl font-bold tracking-tight text-gray-900">
+                    <h1 className="mb-6 text-5xl font-bold tracking-tight text-gray-900">
                         WELCOME to the SPORT shop !
                     </h1>
                 </div>
