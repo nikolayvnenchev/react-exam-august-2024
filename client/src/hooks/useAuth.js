@@ -6,8 +6,8 @@ export const useLogin = () => {
     const { changeAuthState } = useContext(AuthContext);
 
     const loginHandler = async (email, password) => {
-        const { password: pass, ...authData} = await login(email, password);
-        
+        const { password: pass, ...authData } = await login(email, password);
+
         changeAuthState(authData);
 
         return authData;
@@ -20,7 +20,7 @@ export const useRegister = () => {
     const { changeAuthState } = useContext(AuthContext);
 
     const registerHandler = async (email, password) => {
-        const { password: pass, ...authData} = await register(email, password);
+        const { password: pass, ...authData } = await register(email, password);
 
         changeAuthState(authData);
 
@@ -34,9 +34,14 @@ export const useLogout = () => {
     const { logout: localLogout } = useContext(AuthContext);
 
     const logoutHandler = async () => {
-        await logout();
-        localLogout();
-    }
+        try {
+            await logout();
+            localLogout();
+        } catch (err) {
+            localStorage.clear();
+            window.location.reload();
+        }
+    };
 
     return logoutHandler;
-}
+};
