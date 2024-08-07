@@ -35,7 +35,6 @@ export default function Header() {
                     <NavLink
                         to="/"
                         className={({ isActive }) => `hover-text${isActive ? ' underline' : ''}`}
-                    // style={({ isActive }) => isActive ? 'underline' : ''}
                     >
                         Home
                     </NavLink>
@@ -123,7 +122,6 @@ export default function Header() {
                                 <NavLink
                                     to="/"
                                     className={({ isActive }) => `text-sm font-semibold leading-6 text-gray-900${isActive ? ' underline' : ''}`}
-                                // style={({ isActive }) => isActive ? 'underline' : ''}
                                 >
                                     Home
                                 </NavLink>
