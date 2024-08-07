@@ -17,7 +17,6 @@ export function useGetAllProducts() {
         navigate('/not-found')
       }
     })();
-    // productsAPI.getAll().then(result => setProducts(result));
   }, [navigate]);
 
   return [products, setProducts]
